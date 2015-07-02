@@ -4,5 +4,5 @@ peopleModule.controller('LoginController', [
 	'$scope',
 	'$http',
 	function($scope, $http){
-	}
+	} 
 ]);
