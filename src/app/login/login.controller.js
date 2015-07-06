@@ -48,24 +48,4 @@
         });
       };
   }
-
-  // Forgot Controller
-/*  function ForgotController($scope, $http, toastr) {
-      $scope.forgot = {};
-
-      $scope.forgotForm = function(){
-        $http.put('http://www.enobashop.com/angularservices/forgot.php', $scope.forgot)
-
-        .success(function(data){
-          if(data === 0){
-            toastr.error('El nombre de usuario no existe', 'Error');
-          }else{
-            toastr.success('La nueva contraseña se ha enviado al correo electrónico', '¡Éxito!');
-          }
-        })
-        .error(function(data, code){
-          alert(code);
-        });
-      };
-  }*/
 })();
