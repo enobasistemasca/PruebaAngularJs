@@ -5,15 +5,20 @@
     .module('pruebaangularjs')
     .config(routeConfig);
 
-  function routeConfig($routeProvider) {
+  function routeConfig($routeProvider, $locationProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'app/main/main.html',
-        controller: 'MainController',
-        controllerAs: 'main'
+      .when('/home', {
+        templateUrl: 'app/home/home.html',
+        controller: 'HomeController',
+        controllerAs: 'home'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/home'
+      });
+
+      $locationProvider.html5Mode({
+        enabled: true,
+        requireBase: false
       });
   }
 
