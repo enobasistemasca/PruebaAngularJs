@@ -24,8 +24,8 @@
             // Timeout and redirect
             var countUp = function() {
                 $location.path( "/home" );
-            }
-            $timeout(countUp, 500)
+            };
+            $timeout(countUp, 500);
           }
         })
         .error(function(data, code){
