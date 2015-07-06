@@ -12,6 +12,11 @@
         controller: 'HomeController',
         controllerAs: 'home'
       })
+      .when('/add', {
+        templateUrl: 'app/add/add.html',
+        controller: 'AddController',
+        controllerAs: 'add'
+      })
       .otherwise({
         redirectTo: '/home'
       });
