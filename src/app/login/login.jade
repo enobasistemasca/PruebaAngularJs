@@ -1,0 +1,50 @@
+div(class='container')  
+    img(class="img-responsive" ng-src="assets/images/logo.jpg")
+    div(class="well text-center login")
+      h1 Inicie sesión
+      form(ng-submit="loginForm()")
+        div(class="form-group")
+          label(for="username") Nombre de usuario
+          div(class="input-group")
+            div(class="input-group-addon")
+              i(class="fa fa-user")
+            input( class="form-control" type="email" name="username" required ng-model="user.username" placeholder="Introduce tu correo electrónico" )
+        div(class="form-group")
+            label(for="password") Contraseña
+            div(class="input-group")
+              div(class="input-group-addon")
+                i(class="fa fa-lock")
+              input( type="password" name="password" class="form-control" required ng-model="user.password" placeholder="Introduce la contraseña" )
+        .col-md-6          
+          button(
+            type="submit"
+            class="btn btn-success pull-right"
+          ) Enviar
+        .col-md-6   
+          button(
+            type="reset"
+            class="btn btn-danger pull-left"
+          ) Borrar
+        .clearfix
+
+    div(class="panel-group" id="accordion" role="tablist" aria-multiselectable="true")
+      div(class="panel panel-default")
+        div(class="panel-heading" role="tab" id="headingOne")
+          h4.panel-title
+            a(role="button" data-toggle="collapse" data-target="#collapseOne" data-parent="#accordion" href="javascript:;" aria-expanded="true" aria-controls="collapseOne") Olvidé mi contraseña
+            
+        div(id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne")
+          div(class="panel-body")
+            form(ng-submit="forgotForm()")
+              div(class="form-group")
+                label(for="username") Nombre de usuario
+                div(class="input-group")
+                  div(class="input-group-addon")
+                    i(class="fa fa-user")
+                  input( class="form-control" type="email" name="username" required ng-model="forgot.username" placeholder="Introduce tu correo electrónico")
+                  
+              button(
+                type="submit"
+                class="btn btn-primary pull-right"
+              ) Reenviar contraseña
+        
