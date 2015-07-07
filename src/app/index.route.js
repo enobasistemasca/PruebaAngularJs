@@ -12,6 +12,21 @@
         controller: 'LoginController',
         controllerAs: 'login'
       })
+      .when('/home', {
+        templateUrl: 'app/home/home.html',
+        controller: 'HomeController',
+        controllerAs: 'home'
+      })
+      .when('/add', {
+        templateUrl: 'app/add/add.html',
+        controller: 'AddController',
+        controllerAs: 'add'
+      })
+      .when('/profile', {
+        templateUrl: 'app/profile/profile.html',
+        controller: 'ProfileController',
+        controllerAs: 'profile'
+      })
       .otherwise({
         redirectTo: '/'
       });
