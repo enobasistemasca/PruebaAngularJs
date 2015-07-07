@@ -11,6 +11,15 @@
         templateUrl: 'app/login/login.html',
         controller: 'LoginController',
         controllerAs: 'login'
+      .when('/home', {
+        templateUrl: 'app/home/home.html',
+        controller: 'HomeController',
+        controllerAs: 'home'
+      })
+      .when('/add', {
+        templateUrl: 'app/add/add.html',
+        controller: 'AddController',
+        controllerAs: 'add'
       })
       .otherwise({
         redirectTo: '/'
