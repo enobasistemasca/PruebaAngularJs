@@ -22,6 +22,11 @@
         controller: 'AddController',
         controllerAs: 'add'
       })
+      .when('/edit/:id', {
+        templateUrl: '../app/edit/edit.html',
+        controller: 'EditController',
+        controllerAs: 'edit'
+      })
       .when('/profile', {
         templateUrl: 'app/profile/profile.html',
         controller: 'ProfileController',
@@ -30,7 +35,7 @@
       .otherwise({
         redirectTo: '/'
       });
-
+      
       $locationProvider.html5Mode({
         enabled: true,
         requireBase: false
