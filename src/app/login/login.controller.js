@@ -15,11 +15,11 @@
         $http.put('http://www.enobashop.com/angularservices/login.php', $scope.user)
 
         .success(function(data){
-          if(data === 0){
+          if(data == 0){
             toastr.error('El nombre de usuario no existe', 'Error');
-          }else if(data === 2){
+          }else if(data == 2){
             toastr.warning('La contraseña no coincide', 'Error');
-          }else{
+          }else if(data == 1){
             toastr.success('Sesión iniciada correctamente', '¡Éxito!');
             // Timeout and redirect
             var countUp = function() {
