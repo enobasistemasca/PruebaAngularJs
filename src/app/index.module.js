@@ -3,5 +3,4 @@
 
   angular
     .module('pruebaangularjs', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ngRoute', 'toastr','ngStorage']);
-
 })();

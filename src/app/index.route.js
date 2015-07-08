@@ -29,8 +29,13 @@
       })
       .when('/profiles', {
         templateUrl: 'app/profile/profiles.html',
-        controller: 'ProfileController',
+        controller: 'ProfilesController',
         controllerAs: 'profile'
+      })
+      .when('/edit/:id', {
+        templateUrl: '../app/edit/edit.html',
+        controller: 'EditController',
+        controllerAs: 'edit'
       })
       .when('/profile', {
         templateUrl: 'app/profile/profile.html',
