@@ -19,15 +19,17 @@ div(class='container')
               )
           div(class='form-group') 
             div(class='input-group') 
-              span(class='input-group-addon')
-                i(class='fa fa-search')   
+              span(class='input-group-addon') 
+                i(class='fa fa-users')   
               select(class = 'form-control' ng-model="filtro")
                 option(value="") Todos
                 option(value="1") Activo
                 option(value="0") Inactivo   
   
+    div(class='col-md-12 centrado' ng-if="busqueda.length == 0 && filtro.length == 0")  
+        h2 Cantidad de clientes registrados: {{users.length}}
     
-    div(class='col-md-12 centrado' ng-if="busqueda.length > 0 || filtro.length < 2")  
+    div(class='col-md-12 centrado' ng-if="busqueda.length > 0 || filtro.length > 0")  
         h2 Cantidad de resultados encontrados: {{users.length}}   
     
     div(
