@@ -34,7 +34,16 @@ div(class='container')
       div(class='form-group')
         label Compañía
         input(type='text' class='form-control' placeholder="Compañía" maxlength="80" ng-model="formData.company" required)    
-        
+      
+      div(class='form-group')
+        label Estatus  
+                          
+        select(
+          class = 'form-control' 
+          ng-model="formData.status" 
+          ng-options="obj.valor as obj.estado for obj in options"
+        )          
+             
       button(type='submit' class='btn btn-primary btn-block') 
         i(class='fa fa-paper-plane-o') &nbsp;
         |Editar  

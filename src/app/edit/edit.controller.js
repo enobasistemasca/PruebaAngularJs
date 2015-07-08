@@ -8,16 +8,39 @@
   /** @ngInject */
   function EditController($scope, $http, toastr, $location, $timeout, $routeParams) {
     $scope.formData = {};
-    //console.log($routeParams.id);
-
-    $http.get('http://www.enobashop.com/angularservices/update.php', $routeParams.id).
+    $scope.options = {};
+    //get user data
+    $http.get('http://www.enobashop.com/angularservices/fetch_single.php?id='+$routeParams.id).
     success(function(data, status, headers, config) {
-      console.log(data);
+
       $scope.formData = data;
+      if($scope.formData.status == 1)
+        $scope.options = [{"valor":"1", "estado":"Activo"}, {"valor":"0", "estado": "Inactivo"}];
+      else
+        $scope.options = [{"valor":"0", "estado": "Inactivo"}, {"valor":"1", "estado":"Activo"}];
     }).
     error(function(data, status, headers, config) {
-      // called asynchronously if an error occurs
-      // or server returns response with an error status.
+      toastr.error('No fue posible obtener los datos de este usuario. Por favor intente de nuevo', 'Error');
     });
+
+    //action form
+    $scope.processForm = function(){
+      $http.post('http://www.enobashop.com/angularservices/update.php', $scope.formData).
+      success(function(data, status, headers, config) {
+        if(data == 1){
+          toastr.success('Usuario editado correctamente', '¡Éxito!');
+          // Timeout and redirect
+          var countUp = function() {
+              $location.path( "/home" );
+          };
+
+          $timeout(countUp, 1000);
+        }
+      }).
+      error(function(data, status, headers, config) {
+        toastr.error('No pudo editarse este usuario. Por favor intente de nuevo', 'Error');
+      });
+    };
+
   }
 })();
