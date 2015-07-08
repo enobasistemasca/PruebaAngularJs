@@ -54,6 +54,7 @@ div(class='container')
             a(href='/edit/{{usuario.id}}' class = 'btn btn-primary edicion', role='button')
               i(class='fa fa-pencil-square-o') &nbsp;  
               |Editar
-            a(href='#', class = 'btn btn-danger', role='button')   
+            a(href='#', class = 'btn btn-danger', role='button' ng-click="eliminar(usuario)")   
               i(class='fa fa-trash-o')  &nbsp;
               |Eliminar
+  
