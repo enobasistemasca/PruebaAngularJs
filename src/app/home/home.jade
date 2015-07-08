@@ -29,8 +29,7 @@ div(class='container')
       div(class='thumbnail centrado')
         img(ng-src='assets/images/icon-user-default.png', class='img-circle img-user', alt='usuario')
         div(class='caption')
-          h3
-            {{usuario.name + " " + usuario.lastname}}
+          h3 {{usuario.name + " " + usuario.lastname}}
           p 
             span(class='label label-warning') {{usuario.email}}            
           p
