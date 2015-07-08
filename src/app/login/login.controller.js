@@ -27,7 +27,7 @@
             });
             // Timeout and redirect
             var countUp = function() {
-                $location.path( "/home" );
+                $location.path( "/main" );
             };
             $timeout(countUp, 2000);
           }
