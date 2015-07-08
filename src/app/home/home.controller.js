@@ -8,26 +8,8 @@
   /** @ngInject */
   function HomeController($scope, $http) {
     $scope.busqueda = "";
-    $scope.users = "";
-    /*$scope.resultados = [
-      {
-        "Name" : "Alfreds Futterkiste",
-        "City" : "Berlin",
-        "Country" : "Germany"
-      },
-      {
-        "Name" : "Berglunds snabbköp",
-        "City" : "Luleå",
-        "Country" : "Sweden"
-      },
-      {
-        "Name" : "Centro comercial Moctezuma",
-        "City" : "México D.F.",
-        "Country" : "Mexico"
-      }
-    ];
-
-    $scope.cantUsuarios = $scope.resultados.length;*/
+    $scope.users="";
+    $scope.filtro="";
 
     $http.get('http://www.enobashop.com/angularservices/fetch.php').
     success(function(data, status, headers, config) {
