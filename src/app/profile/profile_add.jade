@@ -1,0 +1,52 @@
+div(class='container')
+  div
+    acme-navbar(creationDate='main.creationDate')
+      
+  h2 Agregación de usuario
+  hr
+  
+  div(class="well text-center profile")
+    h3
+      i(class="fa fa-user") &nbsp;
+      |Nuevo usuario
+      br
+      small (Complete la información para agregar un usuario)
+    form(ng-submit="profileForm()")
+      .col-md-6
+        div(class="form-group")
+          label(for="name") * Nombre
+          div(class="input-group")
+            div(class="input-group-addon")
+              i(class="fa fa-user")
+            input( class="form-control" type="text" name="name" required ng-model="profileAdd.name" placeholder="Ingresa tu nombre y apellido" )
+        div(class="form-group")
+            label(for="username") * Correo electrónico
+            div(class="input-group")
+              div(class="input-group-addon")
+                i(class="fa fa-lock")
+              input( type="email" name="username" class="form-control" required ng-model="profileAdd.username" placeholder="Introduce tu correo electrónico" )
+        button(
+          type="submit"
+          class="btn btn-success pull-right"
+        ) Agregar
+      .col-md-6
+        div(class="form-group")
+          label(for="password") * Contraseña
+          div(class="input-group")
+            div(class="input-group-addon")
+              i(class="fa fa-user")
+            input( class="form-control" type="password" name="password" required ng-model="profileAdd.password" placeholder="Introduce la contraseña para modificarla" )
+        div(class="form-group")
+            label(for="status") * Status
+            div(class="input-group")
+              div(class="input-group-addon")
+                i(class="fa fa-lock")
+              select(ng-model="profileAdd.status" class="form-control" required)
+                option(value="" selected) --Seleccione --
+                option(value="1") Activo
+                option(value="0") Inactivo
+        button(
+          type="reset"
+          class="btn btn-danger pull-left"
+        ) Borrar
+      .clearfix

@@ -1,0 +1,54 @@
+div(class='container')
+  div
+    acme-navbar(creationDate='main.creationDate')
+      
+  h2 Mi perfil {{$storage.user_id}}
+  hr
+  
+  div(class="well text-center login")
+    h3 
+      i(class="fa fa-user") &nbsp; 
+      |Actualización de datos
+      br 
+      small (Edite la información inferior si desea cambiar su perfil)
+    form(ng-submit="profileUpdateForm()")
+      .col-md-6  
+        div(class="form-group")
+          label(for="name") * Nombre
+          div(class="input-group")
+            div(class="input-group-addon")
+              i(class="fa fa-user")
+            input( class="form-control" type="text" name="name" required ng-model="profile.name" placeholder="Ingresa tu nombre y apellido" )
+        div(class="form-group")
+            label(for="username") * Correo electrónico
+            div(class="input-group")
+              div(class="input-group-addon")
+                i(class="fa fa-lock")
+              input( type="email" name="username" class="form-control" required ng-model="profile.username" placeholder="Introduce tu correo electrónico" )
+        button(
+          type="submit"
+          class="btn btn-success pull-right"
+        ) Guardar        
+      .col-md-6
+        div(class="form-group")
+          label(for="password") Contraseña
+          div(class="input-group")
+            div(class="input-group-addon")
+              i(class="fa fa-user")
+            input( class="form-control" type="password" name="password" ng-model="profile.password" placeholder="Introduce la contraseña para modificarla" )
+        div(class="form-group")
+            label(for="status") * Status
+            div(class="input-group")
+              div(class="input-group-addon")
+                i(class="fa fa-lock")
+              select(
+                class = 'form-control' 
+                ng-model="profile.status" 
+                ng-options="obj.valor as obj.estado for obj in options"
+              ) 
+        button(
+          type="reset"
+          class="btn btn-danger pull-left"
+        ) Reestablecer
+      .clearfix
+  
