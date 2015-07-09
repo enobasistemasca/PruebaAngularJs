@@ -1,0 +1,58 @@
+div(class='container')
+  div
+    acme-navbar(creationDate='main.creationDate')
+  
+  div(class='row')
+    div(class='col-md-12')
+      div(class='well centrado')
+        h3(id='mensaje-entrada') Panel de búsqueda
+        form(class='form-inline')
+          div(class='form-group') 
+            div(class='input-group') 
+              span(class='input-group-addon')
+                i(class='fa fa-search')   
+              input(
+                type='text', 
+                placeholder = 'Escriba aquí su búsqueda', 
+                class='form-control',
+                ng-model='busqueda'
+              )
+          div(class='form-group') 
+            div(class='input-group') 
+              span(class='input-group-addon') 
+                i(class='fa fa-users')   
+              select(class = 'form-control' ng-model="filtro")
+                option(value="") Todos
+                option(value="1") Activo
+                option(value="0") Inactivo   
+  
+    div(class='col-md-12 centrado' ng-if="busqueda.length == 0 && filtro.length == 0")  
+        h2 Cantidad de usuarios registrados: {{users.length}}
+    
+    div(class='col-md-12 centrado' ng-if="busqueda.length > 0 || filtro.length > 0")  
+        h2 Cantidad de resultados encontrados: {{users.length}}   
+    
+    div(
+      class='col-sm-6 col-md-4' 
+      ng-repeat="usuario in users = (resultados | orderBy: 'Name' | filter:busqueda | filter:{status:filtro})"
+    )
+      div(class='thumbnail centrado')
+        img(ng-src='assets/images/icon-user-default.png', class='img-circle img-user', alt='usuario')
+        div(class='caption')
+          h3
+            {{usuario.name + " " + usuario.lastname}} 
+          
+          p(ng-if="usuario.status == 1")  
+            span(class='label label-success') Activo
+            
+          p(ng-if="usuario.status == 0")  
+              span(class='label label-danger') Inactivo
+           
+          p
+            a(href='#' class = 'btn btn-primary edicion', role='button')
+              i(class='fa fa-pencil-square-o') &nbsp;  
+              |Editar
+            a(href='#', class = 'btn btn-danger', role='button' ng-click="eliminar(usuario)" ng-if="usuario.id != $storage.user_id")   
+              i(class='fa fa-trash-o')  &nbsp;
+              |Eliminar
+  

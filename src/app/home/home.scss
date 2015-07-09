@@ -1,0 +1,17 @@
+$distancia:1px;
+$height: 150px;
+
+div .thumbnail{
+  height: auto!important;
+}
+
+.thumbnail > img, .thumbnail a > img{
+  height: $height;
+}
+
+.centrado{
+  text-align: center;
+}
+.edicion{
+  margin-right: $distancia;
+}
